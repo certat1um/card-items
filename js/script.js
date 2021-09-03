@@ -4,21 +4,24 @@ window.addEventListener('DOMContentLoaded', () => {
 
    class Card_item {
 
-      constructor(img_src, img_alt, title, text, color_category, parent, btn) {
+      constructor(img_src, img_alt, title, text, color_category, parent) {
          this.img_src = img_src;
          this.img_alt = img_alt;
          this.title = title;
          this.text = text;
          this.parent = parent;
-         this.btn = btn;
-         this.color_category = color_category;
+         this.color_category = color_category; // for buttons
       }
    
       addCardItem() {
+         // what to insert
          let element = document.createElement('div');
          element.classList.add('card-item');
+
+         // where to insert
          this.parent = document.querySelector('.cards');
-   
+
+         // content
          element.innerHTML = `
             <img src=${this.img_src} alt=${this.img_alt} class="card-img">
             <h3 class="card-heading">${this.title}</h3>
@@ -32,6 +35,7 @@ window.addEventListener('DOMContentLoaded', () => {
       }
    }
    
+   // info
    new Card_item(
       img_src = 'img/tomatoes.jpg',
       img_alt = 'tomatoes',
